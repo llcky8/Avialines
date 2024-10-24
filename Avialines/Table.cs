@@ -111,7 +111,6 @@ namespace Avialines
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
