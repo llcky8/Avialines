@@ -35,9 +35,14 @@ namespace Avialines
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void HelloForm_Load(object sender, EventArgs e)
+        {
+            this.Text = "Привет!";
         }
     }
 }
