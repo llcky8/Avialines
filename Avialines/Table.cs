@@ -17,6 +17,7 @@ namespace Avialines
         private string buttonClicked;
         private DataTable dt;
 
+
         public Table(string buttonName)
         {
             InitializeComponent();
@@ -82,7 +83,6 @@ namespace Avialines
 
         }
 
-        private void buttonExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -94,23 +94,8 @@ namespace Avialines
             this.Hide(); // Скрывает текущую форму
         }
 
-        private void Table_Load(object sender, EventArgs e)
         {
-            this.Text = "Выбранная таблица";
-        }
-
-        private void buttonEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
+            this.Text = "Таблица аэропортов";
         }
     }
 }
