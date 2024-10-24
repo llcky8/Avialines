@@ -1,6 +1,6 @@
 ﻿namespace Avialines
 {
-    partial class Airplane
+    partial class Table
     {
         /// <summary>
         /// Required designer variable.
@@ -75,6 +75,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "Airplane";
             this.Text = "Airplane";
+            this.Load += new System.EventHandler(this.Airplane_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

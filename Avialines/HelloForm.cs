@@ -39,5 +39,10 @@ namespace Avialines
         {
             Application.Exit();
         }
+
+        private void HelloForm_Load(object sender, EventArgs e)
+        {
+            this.Text = "Привет!";
+        }
     }
 }

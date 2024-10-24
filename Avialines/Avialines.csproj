@@ -98,11 +98,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Airplane.cs">
+    <Compile Include="Table.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Airplane.Designer.cs">
-      <DependentUpon>Airplane.cs</DependentUpon>
+    <Compile Include="Table.Designer.cs">
+      <DependentUpon>Table.cs</DependentUpon>
     </Compile>
     <Compile Include="HelloForm.cs">
       <SubType>Form</SubType>
@@ -118,8 +118,8 @@
     <Compile Include="SelectionForm.Designer.cs">
       <DependentUpon>SelectionForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Airplane.resx">
-      <DependentUpon>Airplane.cs</DependentUpon>
+    <EmbeddedResource Include="Table.resx">
+      <DependentUpon>Table.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelloForm.resx">
       <DependentUpon>HelloForm.cs</DependentUpon>
