@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Avialines
 {
-    public partial class SelectionForm : Form
+    public partial class SelectionForm : BaseForm
     {
         private MySqlConnection con;
         public SelectionForm()
@@ -101,6 +101,11 @@ namespace Avialines
         private void SelectionForm_Load(object sender, EventArgs e)
         {
             this.Text = "Выбери таблицу данных";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

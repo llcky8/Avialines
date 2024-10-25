@@ -12,7 +12,7 @@ using Mysqlx.Connection;
 
 namespace Avialines
 {
-    public partial class HelloForm : Form
+    public partial class HelloForm : BaseForm
     {
         public HelloForm()
         {
@@ -43,6 +43,11 @@ namespace Avialines
         private void HelloForm_Load(object sender, EventArgs e)
         {
             this.Text = "Привет!";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
