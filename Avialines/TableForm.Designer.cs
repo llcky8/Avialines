@@ -1,6 +1,6 @@
 ﻿namespace Avialines
 {
-    partial class Table
+    partial class TableForm
     {
         /// <summary>
         /// Required designer variable.

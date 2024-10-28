@@ -34,56 +34,56 @@ namespace Avialines
         private void button1_Click(object sender, EventArgs e)
         {
             // Открыть новое окно и скрыть текущее
-            Table nextForm = new Table("Button1");
+            TableForm nextForm = new TableForm("Button1");
             this.Hide();  // Скрыть текущее окно
             nextForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Table nextForm = new Table("Button2");
+            TableForm nextForm = new TableForm("Button2");
             this.Hide();
             nextForm.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Table nextForm = new Table("Button4");
+            TableForm nextForm = new TableForm("Button4");
             this.Hide();
             nextForm.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Table nextForm = new Table("Button3");
+            TableForm nextForm = new TableForm("Button3");
             this.Hide();
             nextForm.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Table nextForm = new Table("Button5");
+            TableForm nextForm = new TableForm("Button5");
             this.Hide();
             nextForm.Show();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Table nextForm = new Table("Button6");
+            TableForm nextForm = new TableForm("Button6");
             this.Hide();
             nextForm.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Table nextForm = new Table("Button7");
+            TableForm nextForm = new TableForm("Button7");
             this.Hide();
             nextForm.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Table nextForm = new Table("Button8");
+            TableForm nextForm = new TableForm("Button8");
             this.Hide();
             nextForm.Show();
         }
@@ -106,6 +106,13 @@ namespace Avialines
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            RequestForm nextForm = new RequestForm();
+            nextForm.Show();
+            this.Hide();
         }
     }
 }

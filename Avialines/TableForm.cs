@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Avialines
 {
-    public partial class Table : BaseForm
+    public partial class TableForm : BaseForm
     {
         private MySqlConnection con;
         private string buttonClicked;
@@ -20,7 +20,7 @@ namespace Avialines
         private bool isEditing = false;  // Флаг, чтобы отслеживать режим редактирования
 
 
-        public Table(string buttonName)
+        public TableForm(string buttonName)
         {
             InitializeComponent();
             buttonClicked = buttonName;
