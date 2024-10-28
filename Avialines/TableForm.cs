@@ -50,7 +50,7 @@ namespace Avialines
                     tableName = "avialines.model";
                     break;
                 case "Button5":
-                    tableName = "avialines.passanger";
+                    tableName = "avialines.passenger";
                     break;
                 case "Button6":
                     tableName = "avialines.pilot";

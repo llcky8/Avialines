@@ -59,7 +59,7 @@ namespace Avialines
             // Заполняем comboBox1 доступными таблицами
             comboBox1.Items.AddRange(new string[]
             {
-            "airplane", "airport", "flight", "model", "passenger", "pilot", "route", "ticket"
+            "airplane", "airport", "flight", "model", "passenger", "pilot", "rout", "ticket"
             });
 
             // Подключаем обработчик изменения выбора таблицы
