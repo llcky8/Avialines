@@ -40,7 +40,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Font = new System.Drawing.Font("Montserrat SemiBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Font = new System.Drawing.Font("Montserrat Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(221, 456);
             this.button1.Name = "button1";
@@ -64,7 +64,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Montserrat SemiBold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Montserrat SemiBold", 19.75F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(19, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(769, 36);
@@ -76,10 +76,10 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Montserrat Medium", 14.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(19, 91);
+            this.label2.Font = new System.Drawing.Font("Montserrat", 15.75F);
+            this.label2.Location = new System.Drawing.Point(19, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(769, 37);
+            this.label2.Size = new System.Drawing.Size(769, 29);
             this.label2.TabIndex = 5;
             this.label2.Text = "Выполнили Гусева Мария и Соколова Алёна";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;

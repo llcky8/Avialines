@@ -157,7 +157,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.label1.Font = new System.Drawing.Font("Montserrat", 15.75F);
             this.label1.Location = new System.Drawing.Point(91, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(625, 132);
@@ -170,7 +170,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.label2.Font = new System.Drawing.Font("Montserrat", 15.75F);
             this.label2.Location = new System.Drawing.Point(38, 392);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(400, 132);
@@ -180,7 +180,7 @@
             // 
             // button11
             // 
-            this.button11.Font = new System.Drawing.Font("Montserrat", 15.75F);
+            this.button11.Font = new System.Drawing.Font("Montserrat Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button11.Location = new System.Drawing.Point(511, 418);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(231, 80);
