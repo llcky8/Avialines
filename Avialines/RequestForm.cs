@@ -21,115 +21,49 @@ namespace Avialines
         }
         private void RequestForm_Load(object sender, EventArgs e)
         {
-            this.Text = "Сделайте запрос";
-            InitializeTableSelection();
+            this.Text = "Запрос вылетов на выбранную дату";
+            InitializeFlightRequestForm();
         }
 
-        private void LoadTableNames()
+        private void InitializeFlightRequestForm()
         {
-            string connString = "server=localhost;port=3306;username=root;password=admin;database=avialines";
-            using (var connection = new MySqlConnection(connString))
-            {
-                try
-                {
-                    connection.Open();
-                    var query = "SHOW TABLES"; // Запрос для получения имен таблиц
-                    using (var command = new MySqlCommand(query, connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                // Добавляем каждую таблицу в ComboBox
-                                comboBox1.Items.Add(reader[0].ToString());
-                            }
-                        }
-                    }
-                }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show("Ошибка при загрузке таблиц: " + ex.Message);
-                }
-            }
-        }
+            // Настраиваем интерфейс
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
 
-
-        private void InitializeTableSelection()
-        {
-            // Заполняем comboBox1 доступными таблицами
-            comboBox1.Items.AddRange(new string[]
-            {
-            "airplane", "airport", "flight", "model", "passenger", "pilot", "rout", "ticket"
-            });
-
-            // Подключаем обработчик изменения выбора таблицы
-            comboBox1.SelectedIndexChanged += ComboBoxTables_SelectedIndexChanged;
-
-            // Заполняем comboBox2 значениями для сортировки
-            comboBox2.Items.Add("По возрастанию");
-            comboBox2.Items.Add("По убыванию");
-
-            // Устанавливаем значение по умолчанию
-            comboBox2.SelectedIndex = 0; // Установить по умолчанию "По возрастанию"
-        }
-
-        private void ComboBoxTables_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedTable = comboBox1.SelectedItem.ToString();
-            LoadColumns(selectedTable);
-        }
-
-        private void LoadColumns(string tableName)
-        {
-            // Очищаем список столбцов перед загрузкой новых
-            checkedListBox1.Items.Clear();
-
-            // Получаем имена столбцов для выбранной таблицы
-            using (MySqlConnection con = new MySqlConnection("server=localhost;port=3306;username=root;password=admin;database=avialines"))
-            {
-                con.Open();
-                string sql = $"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='{tableName}' AND TABLE_SCHEMA='avialines'";
-                using (MySqlCommand cmd = new MySqlCommand(sql, con))
-                {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            checkedListBox1.Items.Add(reader["COLUMN_NAME"].ToString());
-                        }
-                    }
-                }
-            }
+            dataGridView1.DataSource = null;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void ExecuteQuery()
         {
-            if (comboBox1.SelectedItem == null || checkedListBox1.CheckedItems.Count == 0)
-            {
-                MessageBox.Show("Выберите таблицу и столбцы для запроса.");
-                return;
-            }
+            // Получаем выбранную дату
+            DateTime selectedDate = dateTimePicker1.Value.Date;
+            string formattedDate = selectedDate.ToString("yyyy-MM-dd");
 
-            string tableName = comboBox1.SelectedItem.ToString();
-            string selectedColumns = string.Join(", ", checkedListBox1.CheckedItems.Cast<string>());
+            // Формируем SQL-запрос
+            string sql = $@"
+            SELECT 
+                flight.datetime_flight AS 'Дата и время вылета',
+                departure.air_name AS 'Аэропорт вылета',
+                departure.air_city AS 'Город вылета',
+                arrival.air_name AS 'Аэропорт прибытия',
+                arrival.air_city AS 'Город прибытия',
+                rout.duration AS 'Длительность маршрута (мин)',
+                CASE 
+                    WHEN flight.cancel = 'Yes' THEN 'Отменен' 
+                    ELSE 'Активен' 
+                END AS 'Статус рейса'
+            FROM flight
+            JOIN rout ON flight.rout_id = rout.rout_id
+            JOIN airport AS departure ON rout.departure_id = departure.air_id
+            JOIN airport AS arrival ON rout.arrival_id = arrival.air_id
+            WHERE DATE(flight.datetime_flight) = '{formattedDate}'";
 
-            string whereClause = textBox1.Text.Trim();
+            ExecuteSqlQuery(sql);
+        }
 
-            // Получаем порядок сортировки из comboBox2
-            string orderBy = comboBox2.SelectedItem?.ToString() == "По возрастанию" ? "ASC" : "DESC";
-            string orderByClause = $"ORDER BY {selectedColumns} {orderBy}";
-
-            // Формирование запроса
-            string sql = $"SELECT {selectedColumns} FROM avialines.{tableName}";
-
-            if (!string.IsNullOrEmpty(whereClause))
-            {
-                sql += " WHERE " + whereClause;
-            }
-
-            // Добавление порядка сортировки
-            sql += " " + orderByClause;
-
+        private void ExecuteSqlQuery(string sql)
+        {
             string connString = "server=localhost;port=3306;username=root;password=admin;database=avialines";
             con = new MySqlConnection(connString);
 
@@ -143,10 +77,19 @@ namespace Avialines
 
                 // Отображение данных
                 dataGridView1.DataSource = dt;
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Нет данных для выбранной даты.");
+                }
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show("Ошибка при выполнении запроса: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
             }
         }
         private void buttonExit_Click(object sender, EventArgs e)
@@ -163,16 +106,6 @@ namespace Avialines
             SelectionForm mainForm = new SelectionForm();
             mainForm.Show();
             this.Hide();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string selectedOrder = comboBox2.SelectedItem.ToString();
         }
     }
 }

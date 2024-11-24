@@ -175,7 +175,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(400, 132);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Также, здесь вы можете создать запрос на вывод интересующей вас информации:";
+            this.label2.Text = "Также, здесь вы можете создать запрос для просмотра рейсов в выбранную дату:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button11
