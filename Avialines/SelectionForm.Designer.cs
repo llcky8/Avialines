@@ -72,7 +72,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(175, 80);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Отправления";
+            this.button3.Text = "Рейсы";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -105,7 +105,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(175, 80);
             this.button6.TabIndex = 6;
-            this.button6.Text = "Рейсы";
+            this.button6.Text = "Маршруты";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -175,7 +175,8 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(400, 132);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Также, здесь вы можете создать запрос для просмотра рейсов в выбранную дату:";
+            this.label2.Text = "Также, здесь вы можете создать запрос для просмотра рейсов в год и экспортировать" +
+    " в Word:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button11
